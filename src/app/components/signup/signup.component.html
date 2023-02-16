@@ -1,0 +1,141 @@
+<a href="https://front.codes/" class="logo" target="_blank">
+    <img src="https://assets.codepen.io/1462889/fcy.png" alt="">
+</a>
+
+<div class="section">
+    <div class="container">
+        <div class="row full-height justify-content-center">
+            <div class="col-12 text-center align-self-center py-5">
+                <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                    <h6 class="mb-0 pb-3"><span>image </span><span>Sign Up</span></h6>
+                    <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                    <label for="reg-log"></label>
+                    <div class="card-3d-wrap mx-auto">
+                        <form [formGroup]="signupForm">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3" style="color: aliceblue;margin-top:35px ;">image</h4>
+                                            <div><img [src]="imagePreview" *ngIf="imagePreview" style="width:300px;"
+                                                    alt="Avatar"></div>
+                                            <div style="margin-top:50px ;"><button type="button"
+                                                    (click)='filePicker.click()' class="btn btn-info">Sélectionner
+                                                    image</button></div>
+                                            <input style="visibility: hidden;" type="file" class="form-control"
+                                                #filePicker (change)='onImageSelected($event)' />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3" style="color: aliceblue;">Sign Up</h4>
+                                            <div class="form-group">
+                                                <input formControlName="name" type="text" name="name" class="form-style"
+                                                    placeholder="Name" id="logname" autocomplete="off">
+                                                <i class="input-icon uil uil-user"></i>
+                                            </div>
+                                            <span *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].touched || signupForm.controls['name'].dirty)">
+                                                <span *ngIf="signupForm.controls['name'].errors.required" style="color: rgb(0, 255, 60);">firstName is required</span>
+                                                <span *ngIf="signupForm.controls['name'].errors.minlength" style="color: rgb(0, 255, 60);">firstName must have at least 3 chars </span>
+                                            </span>
+                                            <div class="form-group mt-2">
+                                                <input formControlName="address" type="text" name="address" class="form-style"
+                                                    placeholder="address" id="logemail" autocomplete="off">
+                                                <i class="input-icon uil uil-at"></i>
+                                            </div>
+                                            <span *ngIf="signupForm.controls['address'].invalid && (signupForm.controls['address'].touched || signupForm.controls['address'].dirty)">
+                                                <span *ngIf="signupForm.controls['address'].errors.required" style="color: rgb(0, 255, 60);">address is required</span>
+                                                <span *ngIf="signupForm.controls['address'].errors.minlength" style="color: rgb(0, 255, 60);">address must have at least 3 chars</span>
+                                            </span>
+                                            <div class="form-group mt-2">
+                                                <input formControlName="tel" type="number" name="tel" class="form-style"
+                                                    placeholder="telephone" id="logpass" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <span *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                                                <span *ngIf="signupForm.controls['tel'].errors.required" style="color: rgb(0, 255, 60);">tel is required</span>
+                                            </span>
+                                            <div class="form-group mt-2">
+                                                <input formControlName="email" type="email" name="email" class="form-style"
+                                                    placeholder="exemple@entreprise.com" id="logpass" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <span *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                                                <span *ngIf="signupForm.controls['email'].errors.required" style="color: rgb(0, 255, 60);">email is required</span>
+                                                <span *ngIf="signupForm.controls['email'].errors.email" style="color: rgb(0, 255, 60);">invalid</span>
+                                                <span *ngIf="signupForm.controls['email'].errors.pattern" style="color: rgb(0, 255, 60);">invalid pattern</span>
+                                            </span>
+                                            <div class="form-group mt-2">
+                                                <input formControlName="pwd" type="password" name="pwd" class="form-style"
+                                                    placeholder="Password" id="logpass" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <span  *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)">
+                                                <span *ngIf="signupForm.controls['pwd'].errors.required" style="color: rgb(0, 255, 60);">password is required</span>
+                                                <span *ngIf="signupForm.controls['pwd'].errors.minlength" style="color: rgb(0, 255, 60);">password least 8 chars </span>
+                                                <span *ngIf="signupForm.controls['pwd'].errors.maxlength" style="color: rgb(0, 255, 60);">password least 12 chars</span>
+                                                </span>
+                                            <div *ngIf="category=='Autres'" class="form-group mt-2">
+                                                <input formControlName="category" type="text" name="category" class="form-style"
+                                                    placeholder="category" id="logpass" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <div class="form-group mt-2">
+                                                <select formControlName="country" placeholder="country" class="form-style" type="text" name="country" placeholder="Country">
+                                                    <option value="Albania">Albania</option>
+                                                    <option value="Algeria">Algeria</option>
+                                                    <option value="American">American</option>
+                                                    <option value="Angola">Angola</option>
+                                                    <option value="Argentina">Argentina</option>
+                                                    <option value="Australia">Australia</option>
+                                                    <option value="Brazil">Brazil</option>
+                                                    <option value="Canada">Canada</option>
+                                                    <option value="China">China</option>
+                                                    <option value="Colombia">Colombia</option>
+                                                    <option value="Congo">Congo</option>
+                                                    <option value="Denmark">Denmark</option>
+                                                    <option value="Egypt">Egypt</option>
+                                                    <option value="Finland">Finland</option>
+                                                    <option value="France">France</option>
+                                                    <option value="Gabon">Gabon</option>
+                                                    <option value="Gambia">Gambia</option>
+                                                    <option value="Germany">Germany</option>
+                                                    <option value="Ghana">Ghana</option>
+                                                    <option value="India">India</option>
+                                                    <option value="Iraq">Iraq</option>
+                                                    <option value="Ireland">Ireland</option>
+                                                    <option value="Italy">Italy</option>
+                                                    <option value="Japan">Japan</option>
+                                                    <option value="Jordan">Jordan</option>           
+                                                    <option value="Libya">Libya</option>
+                                                    <option value="MC">Monaco</option>
+                                                    <option value="MN">Mongolia</option>
+                                                    <option value="ME">Montenegro</option>
+                                                    <option value="MS">Montserrat</option>
+                                                    <option value="Morocco">Morocco</option>
+                                                    <option value="Nigeria">Nigeria</option>
+                                                    <option value="Poland">Poland</option>
+                                                    <option value="Qatar">Qatar</option>
+                                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                                    <option value="Senegal">Senegal</option>
+                                                    <option value="Serbia">Serbia</option>
+                                                    <option value="Spain">Spain</option>
+                                                    <option value="Togo">Togo</option>
+                                                    <option value="Tunisie">Tunisie</option>
+                                                    <option value="Turkey">Turkey</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit"  [disabled]="signupForm.invalid" class="btn mt-4" (click)="signup()">submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
