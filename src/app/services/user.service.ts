@@ -11,6 +11,8 @@ export class UserService {
     let formData = new FormData();
     formData.append("img",img);
     formData.append("name",obj.name);
+    formData.append("firstName",obj.firstName);
+    formData.append("lastName",obj.lastName);
     formData.append("address",obj.address);
     formData.append("tel",obj.tel);
     formData.append("email",obj.email);

@@ -4,7 +4,12 @@
     <div class="row">
       <div class="col-lg-12 text-center zindex-1">
         <h1 class="mb-3">Take Control of your<br>
-          Project and Team</h1>
+            <section class="animation">
+              <div class="first"><div>Carlos Córdova</div></div>
+              <div class="second"><div>Web Developer</div></div>
+              <div class="third"><div>Systems Engineer</div></div>
+            </section>
+        </h1>
         <p class="mb-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum<br>
           dolore eu fugiat nulla pariatur.</p>
         <a routerLink="CategoryVente" class="btn btn-secondary btn-lg">explore us</a>
@@ -70,10 +75,7 @@
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-          <li><a class="fa fa-facebook" aria-hidden="true"></a></li>
-          <li><a class="fa fa-twitter" aria-hidden="true"></a></li>
-          <li><a class="fa fa-google-plus" aria-hidden="true"></a></li>
-          <li><a class="fa fa-linkedin" aria-hidden="true"></a></li>
+          <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
         </ul>
       </div>
     </div>
@@ -87,10 +89,7 @@
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-          <li><a class="fa fa-facebook" aria-hidden="true"></a></li>
-          <li><a class="fa fa-twitter" aria-hidden="true"></a></li>
-          <li><a class="fa fa-google-plus" aria-hidden="true"></a></li>
-          <li><a class="fa fa-linkedin" aria-hidden="true"></a></li>
+          <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
         </ul>
       </div>
     </div>
@@ -104,10 +103,7 @@
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-          <li><a class="fa fa-facebook" aria-hidden="true"></a></li>
-          <li><a class="fa fa-twitter" aria-hidden="true"></a></li>
-          <li><a class="fa fa-google-plus" aria-hidden="true"></a></li>
-          <li><a class="fa fa-linkedin" aria-hidden="true"></a></li>
+          <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
         </ul>
       </div>
     </div>
@@ -121,12 +117,26 @@
           <h4 class="title">Web Developer</h4>
         </div>
         <ul class="social">
-          <li><a class="fa fa-facebook" aria-hidden="true"></a></li>
-          <li><a class="fa fa-twitter" aria-hidden="true"></a></li>
-          <li><a class="fa fa-google-plus" aria-hidden="true"></a></li>
-          <li><a class="fa fa-linkedin" aria-hidden="true"></a></li>
+          <a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
         </ul>
       </div>
     </div>
   </div>
+</div>
+<!--Trigger-->
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form #loginForm="ngForm" (ngSubmit)='validateLogin()'>
+          <input  [(ngModel)]="login.email" type="text" name="email" class="username form-control" placeholder="email"/>
+          <input [(ngModel)]="login.pwd" type="password" name="pwd" class="password form-control" placeholder="password"/>
+          <input class="btn login" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </div>  
 </div>

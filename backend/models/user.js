@@ -6,6 +6,8 @@ const userSchema =mongoose.Schema({
 // destenation de image// le path
 avatar:String,
 name:String,
+firstName:String,
+lastName:String,
 address:String,
 tel:Number,
 email:String,

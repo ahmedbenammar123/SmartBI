@@ -16,6 +16,8 @@ import { ServiceComponent } from './components/service/service.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { CategoryVenteComponent } from './components/category-vente/category-vente.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupAdminComponent } from './components/signup-admin/signup-admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SignupComponent } from './components/signup/signup.component';
     ServiceComponent,
     ContactComponent,
     CategoryVenteComponent,
-    SignupComponent
+    SignupComponent,
+    LoginComponent,
+    SignupAdminComponent
   ],
   imports: [
     BrowserModule,

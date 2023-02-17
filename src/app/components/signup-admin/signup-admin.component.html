@@ -1,0 +1,128 @@
+<div class="form-bg" style="margin-top:150px; margin-left:300px ;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-9 col-sm-offset-2 col-sm-8">
+                <div class="form-container">
+                    <form [formGroup]="signupForm" class="form-horizontal">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="title">Hi Admin.</h5>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                <div><img [src]="imagePreview" *ngIf="imagePreview" style="width:130px; margin-left:125px ;" alt="Avatar"></div>
+                                <div style="margin-top:10px ; margin-left:100px ;"><button type="button" (click)='filePicker.click()' class="btn">image</button></div>
+                                
+                                <input style="visibility: hidden;" type="file" class="form-control" #filePicker (change)='onImageSelected($event)' />
+                            </div>
+                            </div>
+                          </div>
+                        <div class="form-group">
+                            <input formControlName="firstName" name="lastName" class="form-control" type="email" placeholder="Enter your firstName">
+                        </div>
+                        <span *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+                            <span *ngIf="signupForm.controls['firstName'].errors.required" style="color: rgb(255, 0, 0);">firstName is required</span>
+                            <span *ngIf="signupForm.controls['firstName'].errors.minlength" style="color: rgb(255, 0, 0);">firstName must have at least 3 chars </span>
+                        </span>
+                        <div class="form-group">
+                            <input formControlName="lastName" name="lastName" class="form-control" type="email" placeholder="Enter your lastName">
+                        </div>
+                        <span *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+                            <span *ngIf="signupForm.controls['lastName'].errors.required" style="color: rgb(255, 0, 0);">firstName is required</span>
+                            <span *ngIf="signupForm.controls['lastName'].errors.minlength" style="color: rgb(255, 0, 0);">firstName must have at least 3 chars </span>
+                        </span>
+                        <div class="form-group">
+                            <select formControlName="country" placeholder="country" class="form-control" type="text" name="country" placeholder="Country">
+                                <option value="Albania">Albania</option>
+                                <option value="Algeria">Algeria</option>
+                                <option value="American">American</option>
+                                <option value="Angola">Angola</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Brazil">Brazil</option>
+                                <option value="Canada">Canada</option>
+                                <option value="China">China</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Denmark">Denmark</option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="Finland">Finland</option>
+                                <option value="France">France</option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia">Gambia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="India">India</option>
+                                <option value="Iraq">Iraq</option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Italy">Italy</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Jordan">Jordan</option>           
+                                <option value="Libya">Libya</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="Morocco">Morocco</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Poland">Poland</option>
+                                <option value="Qatar">Qatar</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="Senegal">Senegal</option>
+                                <option value="Serbia">Serbia</option>
+                                <option value="Spain">Spain</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Tunisie">Tunisie</option>
+                                <option value="Turkey">Turkey</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="tel" name="tel" class="form-control" type="number" placeholder="Enter your telephone">
+                        </div>
+                        <span *ngIf="signupForm.controls['tel'].invalid && (signupForm.controls['tel'].touched || signupForm.controls['tel'].dirty)">
+                        <span *ngIf="signupForm.controls['tel'].errors.required" style="color: rgb(255, 0, 0);">tel is required</span>
+                        </span>
+                        <div class="form-group">
+                            <input formControlName="category" name="category" class="form-control" type="password" placeholder="Enter your category">
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="email" name="email" class="form-control" type="email" placeholder="Enter your email">
+                        </div>
+                        <span *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                            <span *ngIf="signupForm.controls['email'].errors.required" style="color: rgb(255, 0, 0);">email is required</span>
+                            <span *ngIf="signupForm.controls['email'].errors.email" style="color: rgb(255, 0, 0);">invalid</span>
+                            <span *ngIf="signupForm.controls['email'].errors.pattern" style="color: rgb(255, 0, 0);">invalid pattern</span>
+                        </span>
+                        <div class="form-group">
+                            <input formControlName="pwd" name="password" class="form-control" type="password" placeholder="Enter your password">
+                        </div>
+                        <span  *ngIf="signupForm.controls['pwd'].invalid && (signupForm.controls['pwd'].touched || signupForm.controls['pwd'].dirty)">
+                            <span *ngIf="signupForm.controls['pwd'].errors.required" style="color: rgb(255, 0, 0);">password is required</span>
+                            <span *ngIf="signupForm.controls['pwd'].errors.minlength" style="color: rgb(255, 0, 0);">password least 8 chars </span>
+                            <span *ngIf="signupForm.controls['pwd'].errors.maxlength" style="color: rgb(255, 0, 0);">password least 12 chars</span>
+                            </span>
+                        <button (click)="signupAdmin()" class="btn signin">signup</button>
+                        <span class="signup">or <a class="btn signin" href="#" data-target="#login" data-toggle="modal">Login</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Trigger-->
+<div id="login" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      
+      <div class="modal-content">
+        <div class="modal-body">
+          <button data-dismiss="modal" class="close">&times;</button>
+          <h4>Login</h4>
+          <form #loginForm="ngForm" (ngSubmit)='validateLogin()'>
+            <input  [(ngModel)]="login.email" type="text" name="email" class="username form-control" placeholder="email"/>
+            <input [(ngModel)]="login.pwd" type="password" name="pwd" class="password form-control" placeholder="password"/>
+            <input class="btn login" type="submit" value="Login" />
+          </form>
+        </div>
+      </div>
+    </div>  
+  </div>

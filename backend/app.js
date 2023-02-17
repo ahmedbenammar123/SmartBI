@@ -84,6 +84,8 @@ app.post("/users/signup", multer({ storage: storage }).single('img'), (req, res)
       console.log('here file, ', req.file);
       let user = new User({
         name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         address: req.body.address,
         tel: req.body.tel,
         email: req.body.email,
